@@ -1,237 +1,163 @@
-
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>V-Sim Documentation &mdash; V-Sim vsim-v1.0.0 documentation</title>
-  
+  <meta name="description" content="V-Sim: RISC-V Assembler and Runtime Simulator">
+  <meta name="author" content="Andrés Castellanos">
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <title>V-Sim Documentation</title>
 
   
-  
-    <link rel="shortcut icon" href="_static/vsim-logo-v.png"/>
-  
-  
-  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+  <link rel="stylesheet" href="./css/vsim_theme.css">
 
   
-
+  <script>
+    // Current page data
+    var mkdocs_page_name = "V-Sim Documentation";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
   
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
   
-    
-
-  
-
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css" />
-  <link rel="stylesheet" href="_static/css/vsim_theme.css" type="text/css" />
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="License" href="license.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+  <a href="https://github.com/andrescv/V-Sim" class="logo">
+    <img src="./img/vsim-logo.png" alt="V-Sim">
+  </a>
+  <a href="https://github.com/andrescv/V-Sim/releases" class="version">
+    <img src="https://img.shields.io/github/release/andrescv/V-Sim/all.svg" alt="Version">
+  </a>
 
-          
-            <a href="#">
-          
-
-          
-            
-            <img src="_static/vsim-logo.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                vsim-v1.0.0
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
-</ul>
-
-            
-          
-        </div>
       </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">V-Sim Documentation</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#v-sim-documentation">V-Sim Documentation</a></li>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">V-Sim</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">V-Sim Documentation</a>
       </nav>
 
-
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
     
-      <li><a href="#">Docs</a> &raquo;</li>
-        
-      <li>V-Sim Documentation</li>
+      
     
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
+    <li>V-Sim Documentation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/andrescv/V-Sim/edit/master/docs/index.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
   </ul>
-
-  
   <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="v-sim-documentation">
-<h1>V-Sim Documentation<a class="headerlink" href="#v-sim-documentation" title="Permalink to this headline">¶</a></h1>
-<a class="reference external image-reference" href="https://travis-ci.org/andrescv/V-Sim"><img alt="https://travis-ci.org/andrescv/V-Sim.svg?branch=master" src="https://travis-ci.org/andrescv/V-Sim.svg?branch=master" /></a>
-<a class="reference external image-reference" href="https://github.com/andrescv/V-Sim/blob/master/LICENSE"><img alt="https://img.shields.io/badge/License-GPL%20v3-blue.svg" src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" /></a>
-<a class="reference external image-reference" href="https://github.com/andrescv/V-Sim/releases"><img alt="https://img.shields.io/github/release/andrescv/V-Sim/all.svg" src="https://img.shields.io/github/release/andrescv/V-Sim/all.svg" /></a>
-<a class="reference external image-reference" href="https://github.com/andrescv/V-Sim/releases"><img alt="https://img.shields.io/github/downloads/andrescv/V-Sim/total.svg" src="https://img.shields.io/github/downloads/andrescv/V-Sim/total.svg" /></a>
-<div class="section" id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
-</ul>
-</div>
-</div>
-</div>
-
-
-           </div>
-           
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="v-sim-documentation">V-Sim Documentation</h1>
+<p align="center">
+  <a href="https://github.com/andrescv/V-Sim/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3">
+  </a>
+  <a href="https://travis-ci.org/andrescv/V-Sim">
+    <img src="https://api.travis-ci.org/andrescv/V-Sim.svg?branch=master" alt="Travis CI">
+  </a>
+  <a href="https://github.com/andrescv/V-Sim/releases">
+    <img src="https://img.shields.io/github/downloads/andrescv/V-Sim/total.svg">
+  </a>
+</p>
+              
+            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-    </div>
   
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Andrés Castellanos.
-
-    </p>
+    <!-- Copyright etc -->
+    
+      <p>© Copyright 2018, Andrés Castellanos</p>
+    
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-
+      
         </div>
       </div>
 
     </section>
 
   </div>
-  
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'vsim-v1.0.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/andrescv/V-Sim/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="./js/theme.js"></script>
+      <script src="./search/require.js"></script>
+      <script src="./search/search.js"></script>
 
 </body>
 </html>
+
+<!--
+MkDocs version : 0.17.5
+Build Date UTC : 2018-07-07 01:21:41
+-->
