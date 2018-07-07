@@ -2,13 +2,18 @@
     "docs": [
         {
             "location": "/",
-            "text": "V-Sim Documentation",
-            "title": "V-Sim Documentation"
+            "text": "V-Sim\n\n\n\n  \n\n  \n\n    \n\n  \n\n  \n\n    \n\n  \n\n  \n\n    \n\n  \n\n  \n\n\n\n\n\nV-Sim is a \nRISC-V\n assembler and runtime simulator for educational purposes made in Java. Almost all the 32-bit base integer instruction set can be simulated, as well as the \nM\n and \nF\n extensions.\n\n\n\n\nInstallation\n\n\nTo install or update V-Sim, you can use the installation script.\n\n\nwith \ncURL\n:\n\n\ncurl https://git.io/fbpu0 -L -o vsim && chmod +x vsim && . ./vsim && rm vsim\n\n\n\n\nor \nWget\n:\n\n\nwget -O vsim https://git.io/fbpu0 && chmod +x vsim && . ./vsim && rm vsim\n\n\n\n\nTo verify that V-Sim has been installed, do:\n\n\nvsim -version\n\n\n\n\nwhich should output \nvsim-v1.0.0\n if the installation was successful.",
+            "title": "Home"
         },
         {
-            "location": "/#v-sim-documentation",
-            "text": "",
-            "title": "V-Sim Documentation"
+            "location": "/#v-sim",
+            "text": "V-Sim is a  RISC-V  assembler and runtime simulator for educational purposes made in Java. Almost all the 32-bit base integer instruction set can be simulated, as well as the  M  and  F  extensions.",
+            "title": "V-Sim"
+        },
+        {
+            "location": "/#installation",
+            "text": "To install or update V-Sim, you can use the installation script.  with  cURL :  curl https://git.io/fbpu0 -L -o vsim && chmod +x vsim && . ./vsim && rm vsim  or  Wget :  wget -O vsim https://git.io/fbpu0 && chmod +x vsim && . ./vsim && rm vsim  To verify that V-Sim has been installed, do:  vsim -version  which should output  vsim-v1.0.0  if the installation was successful.",
+            "title": "Installation"
         }
     ]
 }

@@ -21,7 +21,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "V-Sim Documentation";
+    var mkdocs_page_name = "Home";
     var mkdocs_page_input_path = "index.md";
     var mkdocs_page_url = "/";
   </script>
@@ -59,10 +59,16 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href=".">V-Sim Documentation</a>
+    <a class="current" href=".">Home</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#v-sim-documentation">V-Sim Documentation</a></li>
+    <li class="toctree-l2"><a href="#v-sim">V-Sim</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#installation">Installation</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -86,16 +92,16 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
+    <li><a href="./.">Docs</a> &raquo;</li>
     
       
     
-    <li>V-Sim Documentation</li>
+    <li>Home</li>
     <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/andrescv/V-Sim/edit/master/docs/index.md"
-          class="icon icon-github"> Edit on GitHub</a>
-      
+        
+          
+          <a href="https://github.com/andrescv/V-Sim/edit/master/docs/docs/index.md" class="icon icon-github"> Edit on Github</a>
+        
     </li>
   </ul>
   <hr/>
@@ -103,8 +109,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="v-sim-documentation">V-Sim Documentation</h1>
+                <h1 id="v-sim">V-Sim</h1>
 <p align="center">
+  <img src="./img/vsim-logo.png" alt="V-Sim" width="500"><br>
   <a href="https://github.com/andrescv/V-Sim/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3">
   </a>
@@ -112,9 +119,28 @@
     <img src="https://api.travis-ci.org/andrescv/V-Sim.svg?branch=master" alt="Travis CI">
   </a>
   <a href="https://github.com/andrescv/V-Sim/releases">
-    <img src="https://img.shields.io/github/downloads/andrescv/V-Sim/total.svg">
+    <img src="https://img.shields.io/github/release/andrescv/V-Sim/all.svg" alt="Version">
   </a>
+  <img src="https://img.shields.io/github/downloads/andrescv/V-Sim/total.svg">
 </p>
+
+<p>V-Sim is a <strong>RISC-V</strong> assembler and runtime simulator for educational purposes made in Java. Almost all the 32-bit base integer instruction set can be simulated, as well as the <strong>M</strong> and <strong>F</strong> extensions.</p>
+<hr />
+<h2 id="installation">Installation</h2>
+<p>To install or update V-Sim, you can use the installation script.</p>
+<p>with <strong>cURL</strong>:</p>
+<pre><code class="shell">curl https://git.io/fbpu0 -L -o vsim &amp;&amp; chmod +x vsim &amp;&amp; . ./vsim &amp;&amp; rm vsim
+</code></pre>
+
+<p>or <strong>Wget</strong>:</p>
+<pre><code class="shell">wget -O vsim https://git.io/fbpu0 &amp;&amp; chmod +x vsim &amp;&amp; . ./vsim &amp;&amp; rm vsim
+</code></pre>
+
+<p>To verify that V-Sim has been installed, do:</p>
+<pre><code class="shell">vsim -version
+</code></pre>
+
+<p>which should output <code>vsim-v1.0.0</code> if the installation was successful.</p>
               
             </div>
           </div>
@@ -159,5 +185,5 @@
 
 <!--
 MkDocs version : 0.17.5
-Build Date UTC : 2018-07-07 01:21:41
+Build Date UTC : 2018-07-07 02:02:07
 -->
