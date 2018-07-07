@@ -14,6 +14,36 @@
             "location": "/#installation",
             "text": "To install or update V-Sim, you can use the installation script.  with  cURL :  curl https://git.io/fbpu0 -L -o vsim && chmod +x vsim && . ./vsim && rm vsim  or  Wget :  wget -O vsim https://git.io/fbpu0 && chmod +x vsim && . ./vsim && rm vsim  To verify that V-Sim has been installed, do:  vsim -version  which should output  vsim-v1.0.0  if the installation was successful.",
             "title": "Installation"
+        },
+        {
+            "location": "/usage/",
+            "text": "Basic Usage\n\n\nTODO",
+            "title": "Usage"
+        },
+        {
+            "location": "/usage/#basic-usage",
+            "text": "TODO",
+            "title": "Basic Usage"
+        },
+        {
+            "location": "/instructions/",
+            "text": "Supported Instructions\n\n\nTODO",
+            "title": "Instructions"
+        },
+        {
+            "location": "/instructions/#supported-instructions",
+            "text": "TODO",
+            "title": "Supported Instructions"
+        },
+        {
+            "location": "/license/",
+            "text": "License\n\n\nCopyright (C) 2018  Andr\u00e9s Castellanos\n\n\nThis program is free software: you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or\n(at your option) any later version.\n\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\n\nYou should have received a copy of the GNU General Public License\nalong with this program.  If not, see \nhttps://www.gnu.org/licenses/\n.",
+            "title": "License"
+        },
+        {
+            "location": "/license/#license",
+            "text": "Copyright (C) 2018  Andr\u00e9s Castellanos  This program is free software: you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or\n(at your option) any later version.  This program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.  You should have received a copy of the GNU General Public License\nalong with this program.  If not, see  https://www.gnu.org/licenses/ .",
+            "title": "License"
         }
     ]
 }
