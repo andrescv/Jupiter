@@ -74,6 +74,38 @@
             
     <li class="toctree-l3"><a href="#supported-directives">Supported Directives</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l4" href="#p2align">.p2align</a></li>
+        
+            <li><a class="toctree-l4" href="#balign">.balign</a></li>
+        
+            <li><a class="toctree-l4" href="#zero">.zero</a></li>
+        
+            <li><a class="toctree-l4" href="#section">.section</a></li>
+        
+            <li><a class="toctree-l4" href="#text">.text</a></li>
+        
+            <li><a class="toctree-l4" href="#data">.data</a></li>
+        
+            <li><a class="toctree-l4" href="#rodata">.rodata</a></li>
+        
+            <li><a class="toctree-l4" href="#bss">.bss</a></li>
+        
+            <li><a class="toctree-l4" href="#globl">.globl</a></li>
+        
+            <li><a class="toctree-l4" href="#string">.string</a></li>
+        
+            <li><a class="toctree-l4" href="#byte">.byte</a></li>
+        
+            <li><a class="toctree-l4" href="#half">.half</a></li>
+        
+            <li><a class="toctree-l4" href="#word">.word</a></li>
+        
+            <li><a class="toctree-l4" href="#float">.float</a></li>
+        
+        </ul>
+    
 
     </ul>
                 </li>
@@ -134,7 +166,257 @@
             <div class="section">
               
                 <h1 id="supported-directives">Supported Directives</h1>
-<p>TODO</p>
+<p>V-Sim supports most common assembler directives, including those indicated <a href="https://github.com/riscv/riscv-asm-manual/blob/master/riscv-asm.md#pseudo-ops">here</a>. Some directives like <code>.word</code> accepts an <code>expr</code> argument list, where <code>expr</code> follows this BNF grammar:</p>
+<pre><code>expr  ::= expr  +  expr # plus
+       |  expr  -  expr # minus
+       |  expr  *  expr # times
+       |  expr  /  expr # divide
+       |  expr  %  expr # remainder
+       |  expr &lt;&lt;  expr # shift left logical
+       |  expr &gt;&gt;&gt; expr # shift right logical
+       |  expr &gt;&gt;  expr # shift right arithmetic
+       |  expr  &amp;  expr # bitwise and
+       |  expr  |  expr # bitwise or
+       |  expr  ^  expr # bitwise xor
+       |  ( expr )
+       |  - expr
+       |  + expr
+       |  ~ expr        # bitwise not
+       |  const
+
+const ::= INTEGER     # e.g 0, 12
+       |  CHARACTER   # e.g 'a', '\n'
+       |  HEXADECIMAL # e.g 0xa
+       |  BINARY      # e.g 0b1001
+</code></pre>
+
+<p>Also <code>.float</code> accepts a <code>fexpr</code> argument list, where <code>fexpr</code> follows this BNF grammar:</p>
+<pre><code>fexpr ::= fexpr + fexpr # plus
+        | fexpr - fexpr # minus
+        | fexpr * fexpr # times
+        | fexpr / fexpr # divide
+        | fexpr % fexpr # remainder
+        | ( fexpr )
+        | - fexpr
+        | + fexpr
+        | const
+
+const ::= FLOAT       # e.g 3.1416
+       |  HEXADECIMAL # (IEEE-754 hex representation) e.g 0x7f800000 (+inf)
+       |  BINARY      # (IEEE-754 bin representation) e.g 0b0        (zero)
+       |  INTEGER     # converted to float e.g 2 -&gt; 2.0
+</code></pre>
+
+<hr />
+<h3 id="p2align">.p2align</h3>
+<p>Align next data item to a power of 2 byte boundary.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="asm">.p2align &lt;alignval&gt;
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>alignval</code>: {0=byte, 1=half, 2=word}</li>
+</ul>
+<p><strong>Aliases</strong></p>
+<ul>
+<li><code>.align</code></li>
+</ul>
+<hr />
+<h3 id="balign">.balign</h3>
+<p>Align next data item to a byte boundary.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="asm">.balign &lt;alignval&gt;
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>alignval</code>: (should be &gt; 0)</li>
+</ul>
+<p><strong>Aliases</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<hr />
+<h3 id="zero">.zero</h3>
+<p>Reserve the specified number of bytes.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="asm">.zero &lt;expr&gt;
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>expr</code>: (should be &gt; 0)</li>
+</ul>
+<p><strong>Aliases</strong></p>
+<ul>
+<li><code>.space</code></li>
+</ul>
+<hr />
+<h3 id="section">.section</h3>
+<p>Emit section and make current.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="asm">.section &lt;section&gt;
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>section</code>: {<code>.text</code>, <code>.data</code>, <code>.rodata</code>, <code>.bss</code>}</li>
+</ul>
+<p><strong>Aliases</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<hr />
+<h3 id="text">.text</h3>
+<p>Emit text section and make current.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="asm">.text
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<p><strong>Aliases</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<hr />
+<h3 id="data">.data</h3>
+<p>Emit data section and make current.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="asm">.data
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<p><strong>Aliases</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<hr />
+<h3 id="rodata">.rodata</h3>
+<p>Emit read-only data section and make current.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="asm">.rodata
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<p><strong>Aliases</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<hr />
+<h3 id="bss">.bss</h3>
+<p>Emit bss section and make current.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="asm">.bss
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<p><strong>Aliases</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<hr />
+<h3 id="globl">.globl</h3>
+<p>Store the listed symbol(s) to symbol table (scope <code>GLOBAL</code>).</p>
+<p><strong>Usage</strong></p>
+<pre><code class="asm">.globl symbol [, symbol]*
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>list</code>: comma separated symbols</li>
+</ul>
+<p><strong>Aliases</strong></p>
+<ul>
+<li><code>.global</code></li>
+</ul>
+<hr />
+<h3 id="string">.string</h3>
+<p>Store the string and add null terminator.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="asm">.string &lt;string&gt;
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>string</code>: quoted string</li>
+</ul>
+<p><strong>Aliases</strong></p>
+<ul>
+<li><code>.asciiz</code>, <code>.asciz</code></li>
+</ul>
+<hr />
+<h3 id="byte">.byte</h3>
+<p>Store the listed value(s) as 8 bit bytes.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="asm">.byte expr [, expr]*
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>list</code>: 8-bit comma separated words</li>
+</ul>
+<p><strong>Aliases</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<hr />
+<h3 id="half">.half</h3>
+<p>Store the listed value(s) as 16 bit halfwords.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="asm">.half expr [, expr]*
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>list</code>: 16-bit comma separated words</li>
+</ul>
+<p><strong>Aliases</strong></p>
+<ul>
+<li><code>.short</code>, <code>.2byte</code></li>
+</ul>
+<hr />
+<h3 id="word">.word</h3>
+<p>Store the listed value(s) as 32 bit words.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="asm">.word expr [, expr]*
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>list</code>: 32-bit comma separated words</li>
+</ul>
+<p><strong>Aliases</strong></p>
+<ul>
+<li><code>.long</code>, <code>.4byte</code></li>
+</ul>
+<hr />
+<h3 id="float">.float</h3>
+<p>Store the listed value(s) as 32 bit float values.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="asm">.float fexpr [, fexpr]*
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>list</code>: 32-bit comma separated float words</li>
+</ul>
+<p><strong>Aliases</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
               
             </div>
           </div>

@@ -27,13 +27,83 @@
         },
         {
             "location": "/directives/",
-            "text": "Supported Directives\n\n\nTODO",
+            "text": "Supported Directives\n\n\nV-Sim supports most common assembler directives, including those indicated \nhere\n. Some directives like \n.word\n accepts an \nexpr\n argument list, where \nexpr\n follows this BNF grammar:\n\n\nexpr  ::= expr  +  expr # plus\n       |  expr  -  expr # minus\n       |  expr  *  expr # times\n       |  expr  /  expr # divide\n       |  expr  %  expr # remainder\n       |  expr <<  expr # shift left logical\n       |  expr >>> expr # shift right logical\n       |  expr >>  expr # shift right arithmetic\n       |  expr  &  expr # bitwise and\n       |  expr  |  expr # bitwise or\n       |  expr  ^  expr # bitwise xor\n       |  ( expr )\n       |  - expr\n       |  + expr\n       |  ~ expr        # bitwise not\n       |  const\n\nconst ::= INTEGER     # e.g 0, 12\n       |  CHARACTER   # e.g 'a', '\\n'\n       |  HEXADECIMAL # e.g 0xa\n       |  BINARY      # e.g 0b1001\n\n\n\n\nAlso \n.float\n accepts a \nfexpr\n argument list, where \nfexpr\n follows this BNF grammar:\n\n\nfexpr ::= fexpr + fexpr # plus\n        | fexpr - fexpr # minus\n        | fexpr * fexpr # times\n        | fexpr / fexpr # divide\n        | fexpr % fexpr # remainder\n        | ( fexpr )\n        | - fexpr\n        | + fexpr\n        | const\n\nconst ::= FLOAT       # e.g 3.1416\n       |  HEXADECIMAL # (IEEE-754 hex representation) e.g 0x7f800000 (+inf)\n       |  BINARY      # (IEEE-754 bin representation) e.g 0b0        (zero)\n       |  INTEGER     # converted to float e.g 2 -> 2.0\n\n\n\n\n\n\n.p2align\n\n\nAlign next data item to a power of 2 byte boundary.\n\n\nUsage\n\n\n.p2align <alignval>\n\n\n\n\nArguments\n\n\n\n\nalignval\n: {0=byte, 1=half, 2=word}\n\n\n\n\nAliases\n\n\n\n\n.align\n\n\n\n\n\n\n.balign\n\n\nAlign next data item to a byte boundary.\n\n\nUsage\n\n\n.balign <alignval>\n\n\n\n\nArguments\n\n\n\n\nalignval\n: (should be > 0)\n\n\n\n\nAliases\n\n\n\n\nnone\n\n\n\n\n\n\n.zero\n\n\nReserve the specified number of bytes.\n\n\nUsage\n\n\n.zero <expr>\n\n\n\n\nArguments\n\n\n\n\nexpr\n: (should be > 0)\n\n\n\n\nAliases\n\n\n\n\n.space\n\n\n\n\n\n\n.section\n\n\nEmit section and make current.\n\n\nUsage\n\n\n.section <section>\n\n\n\n\nArguments\n\n\n\n\nsection\n: {\n.text\n, \n.data\n, \n.rodata\n, \n.bss\n}\n\n\n\n\nAliases\n\n\n\n\nnone\n\n\n\n\n\n\n.text\n\n\nEmit text section and make current.\n\n\nUsage\n\n\n.text\n\n\n\n\nArguments\n\n\n\n\nnone\n\n\n\n\nAliases\n\n\n\n\nnone\n\n\n\n\n\n\n.data\n\n\nEmit data section and make current.\n\n\nUsage\n\n\n.data\n\n\n\n\nArguments\n\n\n\n\nnone\n\n\n\n\nAliases\n\n\n\n\nnone\n\n\n\n\n\n\n.rodata\n\n\nEmit read-only data section and make current.\n\n\nUsage\n\n\n.rodata\n\n\n\n\nArguments\n\n\n\n\nnone\n\n\n\n\nAliases\n\n\n\n\nnone\n\n\n\n\n\n\n.bss\n\n\nEmit bss section and make current.\n\n\nUsage\n\n\n.bss\n\n\n\n\nArguments\n\n\n\n\nnone\n\n\n\n\nAliases\n\n\n\n\nnone\n\n\n\n\n\n\n.globl\n\n\nStore the listed symbol(s) to symbol table (scope \nGLOBAL\n).\n\n\nUsage\n\n\n.globl symbol [, symbol]*\n\n\n\n\nArguments\n\n\n\n\nlist\n: comma separated symbols\n\n\n\n\nAliases\n\n\n\n\n.global\n\n\n\n\n\n\n.string\n\n\nStore the string and add null terminator.\n\n\nUsage\n\n\n.string <string>\n\n\n\n\nArguments\n\n\n\n\nstring\n: quoted string\n\n\n\n\nAliases\n\n\n\n\n.asciiz\n, \n.asciz\n\n\n\n\n\n\n.byte\n\n\nStore the listed value(s) as 8 bit bytes.\n\n\nUsage\n\n\n.byte expr [, expr]*\n\n\n\n\nArguments\n\n\n\n\nlist\n: 8-bit comma separated words\n\n\n\n\nAliases\n\n\n\n\nnone\n\n\n\n\n\n\n.half\n\n\nStore the listed value(s) as 16 bit halfwords.\n\n\nUsage\n\n\n.half expr [, expr]*\n\n\n\n\nArguments\n\n\n\n\nlist\n: 16-bit comma separated words\n\n\n\n\nAliases\n\n\n\n\n.short\n, \n.2byte\n\n\n\n\n\n\n.word\n\n\nStore the listed value(s) as 32 bit words.\n\n\nUsage\n\n\n.word expr [, expr]*\n\n\n\n\nArguments\n\n\n\n\nlist\n: 32-bit comma separated words\n\n\n\n\nAliases\n\n\n\n\n.long\n, \n.4byte\n\n\n\n\n\n\n.float\n\n\nStore the listed value(s) as 32 bit float values.\n\n\nUsage\n\n\n.float fexpr [, fexpr]*\n\n\n\n\nArguments\n\n\n\n\nlist\n: 32-bit comma separated float words\n\n\n\n\nAliases\n\n\n\n\nnone",
             "title": "Directives"
         },
         {
             "location": "/directives/#supported-directives",
-            "text": "TODO",
+            "text": "V-Sim supports most common assembler directives, including those indicated  here . Some directives like  .word  accepts an  expr  argument list, where  expr  follows this BNF grammar:  expr  ::= expr  +  expr # plus\n       |  expr  -  expr # minus\n       |  expr  *  expr # times\n       |  expr  /  expr # divide\n       |  expr  %  expr # remainder\n       |  expr <<  expr # shift left logical\n       |  expr >>> expr # shift right logical\n       |  expr >>  expr # shift right arithmetic\n       |  expr  &  expr # bitwise and\n       |  expr  |  expr # bitwise or\n       |  expr  ^  expr # bitwise xor\n       |  ( expr )\n       |  - expr\n       |  + expr\n       |  ~ expr        # bitwise not\n       |  const\n\nconst ::= INTEGER     # e.g 0, 12\n       |  CHARACTER   # e.g 'a', '\\n'\n       |  HEXADECIMAL # e.g 0xa\n       |  BINARY      # e.g 0b1001  Also  .float  accepts a  fexpr  argument list, where  fexpr  follows this BNF grammar:  fexpr ::= fexpr + fexpr # plus\n        | fexpr - fexpr # minus\n        | fexpr * fexpr # times\n        | fexpr / fexpr # divide\n        | fexpr % fexpr # remainder\n        | ( fexpr )\n        | - fexpr\n        | + fexpr\n        | const\n\nconst ::= FLOAT       # e.g 3.1416\n       |  HEXADECIMAL # (IEEE-754 hex representation) e.g 0x7f800000 (+inf)\n       |  BINARY      # (IEEE-754 bin representation) e.g 0b0        (zero)\n       |  INTEGER     # converted to float e.g 2 -> 2.0",
             "title": "Supported Directives"
+        },
+        {
+            "location": "/directives/#p2align",
+            "text": "Align next data item to a power of 2 byte boundary.  Usage  .p2align <alignval>  Arguments   alignval : {0=byte, 1=half, 2=word}   Aliases   .align",
+            "title": ".p2align"
+        },
+        {
+            "location": "/directives/#balign",
+            "text": "Align next data item to a byte boundary.  Usage  .balign <alignval>  Arguments   alignval : (should be > 0)   Aliases   none",
+            "title": ".balign"
+        },
+        {
+            "location": "/directives/#zero",
+            "text": "Reserve the specified number of bytes.  Usage  .zero <expr>  Arguments   expr : (should be > 0)   Aliases   .space",
+            "title": ".zero"
+        },
+        {
+            "location": "/directives/#section",
+            "text": "Emit section and make current.  Usage  .section <section>  Arguments   section : { .text ,  .data ,  .rodata ,  .bss }   Aliases   none",
+            "title": ".section"
+        },
+        {
+            "location": "/directives/#text",
+            "text": "Emit text section and make current.  Usage  .text  Arguments   none   Aliases   none",
+            "title": ".text"
+        },
+        {
+            "location": "/directives/#data",
+            "text": "Emit data section and make current.  Usage  .data  Arguments   none   Aliases   none",
+            "title": ".data"
+        },
+        {
+            "location": "/directives/#rodata",
+            "text": "Emit read-only data section and make current.  Usage  .rodata  Arguments   none   Aliases   none",
+            "title": ".rodata"
+        },
+        {
+            "location": "/directives/#bss",
+            "text": "Emit bss section and make current.  Usage  .bss  Arguments   none   Aliases   none",
+            "title": ".bss"
+        },
+        {
+            "location": "/directives/#globl",
+            "text": "Store the listed symbol(s) to symbol table (scope  GLOBAL ).  Usage  .globl symbol [, symbol]*  Arguments   list : comma separated symbols   Aliases   .global",
+            "title": ".globl"
+        },
+        {
+            "location": "/directives/#string",
+            "text": "Store the string and add null terminator.  Usage  .string <string>  Arguments   string : quoted string   Aliases   .asciiz ,  .asciz",
+            "title": ".string"
+        },
+        {
+            "location": "/directives/#byte",
+            "text": "Store the listed value(s) as 8 bit bytes.  Usage  .byte expr [, expr]*  Arguments   list : 8-bit comma separated words   Aliases   none",
+            "title": ".byte"
+        },
+        {
+            "location": "/directives/#half",
+            "text": "Store the listed value(s) as 16 bit halfwords.  Usage  .half expr [, expr]*  Arguments   list : 16-bit comma separated words   Aliases   .short ,  .2byte",
+            "title": ".half"
+        },
+        {
+            "location": "/directives/#word",
+            "text": "Store the listed value(s) as 32 bit words.  Usage  .word expr [, expr]*  Arguments   list : 32-bit comma separated words   Aliases   .long ,  .4byte",
+            "title": ".word"
+        },
+        {
+            "location": "/directives/#float",
+            "text": "Store the listed value(s) as 32 bit float values.  Usage  .float fexpr [, fexpr]*  Arguments   list : 32-bit comma separated float words   Aliases   none",
+            "title": ".float"
         },
         {
             "location": "/ecalls/",
