@@ -2,28 +2,173 @@
     "docs": [
         {
             "location": "/",
-            "text": "V-Sim\n\n\n\n  \n\n  \n\n    \n\n  \n\n  \n\n    \n\n  \n\n  \n\n    \n\n  \n\n  \n\n\n\n\n\nV-Sim is a \nRISC-V\n assembler and runtime simulator for educational purposes made in Java. Almost all the 32-bit base integer instruction set can be simulated, as well as the \nM\n and \nF\n extensions.\n\n\n\n\nInstallation\n\n\nTo install or update V-Sim, you can use the installation script.\n\n\nwith \ncURL\n:\n\n\ncurl https://git.io/fbpu0 -L -o vsim && chmod +x vsim && . ./vsim && rm vsim\n\n\n\n\nor \nWget\n:\n\n\nwget -O vsim https://git.io/fbpu0 && chmod +x vsim && . ./vsim && rm vsim\n\n\n\n\nTo verify that V-Sim has been installed, do:\n\n\nvsim -version\n\n\n\n\nwhich should output \nvsim-v1.0.0\n if the installation was successful.",
+            "text": "V-Sim\n\n\n\n  \n\n  \n\n    \n\n  \n\n  \n\n    \n\n  \n\n  \n\n    \n\n  \n\n  \n\n\n\n\n\nV-Sim is a simple assembler and runtime simulator inspired by \nSPIM\n for programming in \nRISC-V\n assembly language and intended for educational purposes. One of the main goals was to make it functional and easy to use. Almost all the 32-bit base integer instruction set (\nRV32I\n) can be simulated, as well as the \nM\n and \nF\n extensions plus all the their respective pseudo-instructions.\n\n\n\n\nInstallation\n\n\nTo install or update V-Sim, you can use the installation script.\n\n\nwith \ncURL\n:\n\n\n$ curl https://git.io/fbpu0 -L -o vsim && chmod +x vsim && . ./vsim && rm vsim\n\n\n\n\nor \nWget\n:\n\n\n$ wget -O vsim https://git.io/fbpu0 && chmod +x vsim && . ./vsim && rm vsim\n\n\n\n\nTo verify that V-Sim has been installed, do:\n\n\n$ vsim -version\n\n\n\n\nwhich should output \nvsim-v1.0.0\n if the installation was successful.",
             "title": "Home"
         },
         {
             "location": "/#v-sim",
-            "text": "V-Sim is a  RISC-V  assembler and runtime simulator for educational purposes made in Java. Almost all the 32-bit base integer instruction set can be simulated, as well as the  M  and  F  extensions.",
+            "text": "V-Sim is a simple assembler and runtime simulator inspired by  SPIM  for programming in  RISC-V  assembly language and intended for educational purposes. One of the main goals was to make it functional and easy to use. Almost all the 32-bit base integer instruction set ( RV32I ) can be simulated, as well as the  M  and  F  extensions plus all the their respective pseudo-instructions.",
             "title": "V-Sim"
         },
         {
             "location": "/#installation",
-            "text": "To install or update V-Sim, you can use the installation script.  with  cURL :  curl https://git.io/fbpu0 -L -o vsim && chmod +x vsim && . ./vsim && rm vsim  or  Wget :  wget -O vsim https://git.io/fbpu0 && chmod +x vsim && . ./vsim && rm vsim  To verify that V-Sim has been installed, do:  vsim -version  which should output  vsim-v1.0.0  if the installation was successful.",
+            "text": "To install or update V-Sim, you can use the installation script.  with  cURL :  $ curl https://git.io/fbpu0 -L -o vsim && chmod +x vsim && . ./vsim && rm vsim  or  Wget :  $ wget -O vsim https://git.io/fbpu0 && chmod +x vsim && . ./vsim && rm vsim  To verify that V-Sim has been installed, do:  $ vsim -version  which should output  vsim-v1.0.0  if the installation was successful.",
             "title": "Installation"
         },
         {
             "location": "/usage/",
-            "text": "Basic Usage\n\n\nTODO",
-            "title": "Usage"
+            "text": "Basic Usage\n\n\nOnce the simulator has been installed, you can get familiar with the CLI opening a terminal and putting the following \nvsim -help\n, that will output something like:\n\n\n$ vsim -help\n _   __    _____\n| | / /___/ __(_)_ _\n| |/ /___/\\ \\/ /  ' \\\n|___/   /___/_/_/_/_/\n\nRISC-V Assembler & Runtime Simulator\n\nGPL-3.0 License\nCopyright (c) 2018 Andres Castellanos\nAll Rights Reserved\nSee the file LICENSE for a full copyright notice\n\nusage: vsim [options] <files>\n\navailable options:\n  -bare         bare machine (no pseudo-ops)\n  -debug        start the debugger\n  -dump DUMP    dump machine code to a file\n  -help         show this help message and exit\n  -iset         print available RISC-V instructions and exit\n  -nocolor      do not colorize output\n  -notitle      do not print title and copyright notice\n  -quiet        do not print warnings\n  -start START  start program at global label (default: main)\n  -usage USAGE  print usage of an instruction and exit\n  -version      show the simulator version and exit\n\n\n\n\nAs you can see there are some options that you can pass to the simulator, for example \n-help\n was the\none that you used previously. Here is a detailed table of each option:\n\n\n\n\n\n\n\n\nOption\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n-bare\n\n\nbare machine mode, no pseudo-instructions available (TAL)\n\n\n\n\n\n\n-debug\n\n\nstart the debugger after assembling all files\n\n\n\n\n\n\n-dump DUMP\n\n\ndump all the generated machine code to a file\n\n\n\n\n\n\n-help\n\n\nshow the simulator help message and exit\n\n\n\n\n\n\n-iset\n\n\nprint the available/implemented RISC-V instructions and exit\n\n\n\n\n\n\n-nocolor\n\n\ndo not colorize output (only applicable for Linux users)\n\n\n\n\n\n\n-notitle\n\n\ndo not print title and copyright notice (useful if redirecting or piping program output)\n\n\n\n\n\n\n-quiet\n\n\ndo not print warnings during the simulation\n\n\n\n\n\n\n-start START\n\n\nstart program at global label (default: main)\n\n\n\n\n\n\n-usage USAGE\n\n\nprint detailed usage and description of an instruction and exit\n\n\n\n\n\n\n-version\n\n\nshow the simulator version and exit\n\n\n\n\n\n\n\n\nNow we can try an example, the legendary \nfibonacci\n program. Download and save the file with the name \nfibonacci.s\n and put this in the terminal \nvsim fibonacci.s\n that will output something like:\n\n\n$ vsim fibonacci.s\n _   __    _____\n| | / /___/ __(_)_ _\n| |/ /___/\\ \\/ /  ' \\\n|___/   /___/_/_/_/_/\n\nRISC-V Assembler & Runtime Simulator\n\nGPL-3.0 License\nCopyright (c) 2018 Andres Castellanos\nAll Rights Reserved\nSee the file LICENSE for a full copyright notice\n\nPlease enter a number:\n\n\n\n\nBecause this program is using the \nREAD_INT\n environmental call, the program asks you to enter a number, you can enter for example the number 9 and the result will be:\n\n\n$ vsim fibonacci.s\n _   __    _____\n| | / /___/ __(_)_ _\n| |/ /___/\\ \\/ /  ' \\\n|___/   /___/_/_/_/_/\n\nRISC-V Assembler & Runtime Simulator\n\nGPL-3.0 License\nCopyright (c) 2018 Andres Castellanos\nAll Rights Reserved\nSee the file LICENSE for a full copyright notice\n\nPlease enter a number: 9\n\nThe 9 fibonnaci number is: 34\n\nvsim: exit(0)\n\n\n\n\nAnd that is the basic usage of the V-Sim simulator, you can also assemble and simulate several files at the same time, the only restriction is that you always have to define a global \nmain\n label, even if it is a single file as this tells V-Sim where to start the simulation. Alternatively you can define a global label with another name and pass the \n-start <labelname>\n option to the simulator e.g.\n\n\n#####################\n#     example.s     #\n#####################\n\n.globl start\n\n.rodata\n\nmsg: .asciiz \"hello world\"\n\n.text\n\nstart:\n  li a0, 4\n  la a1, msg\n  ecall\n  li a0, 10\n  ecall\n\n\n\n\n$ vsim -start start example.s\n _   __    _____\n| | / /___/ __(_)_ _\n| |/ /___/\\ \\/ /  ' \\\n|___/   /___/_/_/_/_/\n\nRISC-V Assembler & Runtime Simulator\n\nGPL-3.0 License\nCopyright (c) 2018 Andres Castellanos\nAll Rights Reserved\nSee the file LICENSE for a full copyright notice\n\nhello world\nvsim: exit(0)\n\n\n\n\nSupport Material\n\n\n\n\nThe RISC-V Reader\n\n\nRISC-V Green Card",
+            "title": "Using V-Sim"
         },
         {
             "location": "/usage/#basic-usage",
-            "text": "TODO",
+            "text": "Once the simulator has been installed, you can get familiar with the CLI opening a terminal and putting the following  vsim -help , that will output something like:  $ vsim -help\n _   __    _____\n| | / /___/ __(_)_ _\n| |/ /___/\\ \\/ /  ' \\\n|___/   /___/_/_/_/_/\n\nRISC-V Assembler & Runtime Simulator\n\nGPL-3.0 License\nCopyright (c) 2018 Andres Castellanos\nAll Rights Reserved\nSee the file LICENSE for a full copyright notice\n\nusage: vsim [options] <files>\n\navailable options:\n  -bare         bare machine (no pseudo-ops)\n  -debug        start the debugger\n  -dump DUMP    dump machine code to a file\n  -help         show this help message and exit\n  -iset         print available RISC-V instructions and exit\n  -nocolor      do not colorize output\n  -notitle      do not print title and copyright notice\n  -quiet        do not print warnings\n  -start START  start program at global label (default: main)\n  -usage USAGE  print usage of an instruction and exit\n  -version      show the simulator version and exit  As you can see there are some options that you can pass to the simulator, for example  -help  was the\none that you used previously. Here is a detailed table of each option:     Option  Description      -bare  bare machine mode, no pseudo-instructions available (TAL)    -debug  start the debugger after assembling all files    -dump DUMP  dump all the generated machine code to a file    -help  show the simulator help message and exit    -iset  print the available/implemented RISC-V instructions and exit    -nocolor  do not colorize output (only applicable for Linux users)    -notitle  do not print title and copyright notice (useful if redirecting or piping program output)    -quiet  do not print warnings during the simulation    -start START  start program at global label (default: main)    -usage USAGE  print detailed usage and description of an instruction and exit    -version  show the simulator version and exit     Now we can try an example, the legendary  fibonacci  program. Download and save the file with the name  fibonacci.s  and put this in the terminal  vsim fibonacci.s  that will output something like:  $ vsim fibonacci.s\n _   __    _____\n| | / /___/ __(_)_ _\n| |/ /___/\\ \\/ /  ' \\\n|___/   /___/_/_/_/_/\n\nRISC-V Assembler & Runtime Simulator\n\nGPL-3.0 License\nCopyright (c) 2018 Andres Castellanos\nAll Rights Reserved\nSee the file LICENSE for a full copyright notice\n\nPlease enter a number:  Because this program is using the  READ_INT  environmental call, the program asks you to enter a number, you can enter for example the number 9 and the result will be:  $ vsim fibonacci.s\n _   __    _____\n| | / /___/ __(_)_ _\n| |/ /___/\\ \\/ /  ' \\\n|___/   /___/_/_/_/_/\n\nRISC-V Assembler & Runtime Simulator\n\nGPL-3.0 License\nCopyright (c) 2018 Andres Castellanos\nAll Rights Reserved\nSee the file LICENSE for a full copyright notice\n\nPlease enter a number: 9\n\nThe 9 fibonnaci number is: 34\n\nvsim: exit(0)  And that is the basic usage of the V-Sim simulator, you can also assemble and simulate several files at the same time, the only restriction is that you always have to define a global  main  label, even if it is a single file as this tells V-Sim where to start the simulation. Alternatively you can define a global label with another name and pass the  -start <labelname>  option to the simulator e.g.  #####################\n#     example.s     #\n#####################\n\n.globl start\n\n.rodata\n\nmsg: .asciiz \"hello world\"\n\n.text\n\nstart:\n  li a0, 4\n  la a1, msg\n  ecall\n  li a0, 10\n  ecall  $ vsim -start start example.s\n _   __    _____\n| | / /___/ __(_)_ _\n| |/ /___/\\ \\/ /  ' \\\n|___/   /___/_/_/_/_/\n\nRISC-V Assembler & Runtime Simulator\n\nGPL-3.0 License\nCopyright (c) 2018 Andres Castellanos\nAll Rights Reserved\nSee the file LICENSE for a full copyright notice\n\nhello world\nvsim: exit(0)  Support Material   The RISC-V Reader  RISC-V Green Card",
             "title": "Basic Usage"
+        },
+        {
+            "location": "/directives/",
+            "text": "Supported Directives\n\n\nTODO",
+            "title": "Directives"
+        },
+        {
+            "location": "/directives/#supported-directives",
+            "text": "TODO",
+            "title": "Supported Directives"
+        },
+        {
+            "location": "/ecalls/",
+            "text": "Ecall\n\n\nV-Sim currently supports a total of \n25\n environmental calls through \necall\n instruction. To use an environmental call, load the ecall \ncode\n into register \na0\n and load any arguments into \na1\n - \na7\n or \nfa0\n-\nfa7\n (floating-point) registers.\n\n\n\n\nPrint Int\n\n\nPrints integer in register \na1\n.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 1   # ecall code\n  li a1, 0xa # integer to print\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 1\n\n\n\n\nArguments\n\n\n\n\na1\n = integer\n\n\n\n\n\n\nPrint Float\n\n\nPrints float in register \nfa0\n.\n\n\nExample\n\n\n.globl main\n\n.rodata\n\n  PI: .float 3.1416\n\n.text\n\nmain:\n  li a0, 2        # ecall code\n  flw fa0, PI, t0 # float to print\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 2\n\n\n\n\nArguments\n\n\n\n\nfa0\n = float\n\n\n\n\n\n\nPrint String\n\n\nPrints null-terminated string whose address is in register \na1\n.\n\n\nExample\n\n\n.globl main\n\n.rodata\n\n  msg: .asciiz \"Hello World!!!\"\n\n.text\n\nmain:\n  li a0, 4   # ecall code\n  la a1, msg # string to print\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 4\n\n\n\n\nArguments\n\n\n\n\na1\n = null-terminated string address\n\n\n\n\n\n\nRead Int\n\n\nReads an integer from \nstdin\n and stores the result in register \na0\n.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 5 # ecall code\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 5\n\n\n\n\nArguments\n\n\n\n\nnone\n\n\n\n\n\n\nRead Float\n\n\nReads a float from \nstdin\n and stores the result in register \nfa0\n.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 6 # ecall code\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 6\n\n\n\n\nArguments\n\n\n\n\nnone\n\n\n\n\n\n\nRead String\n\n\nIt reads up to \\(length - 1\\) characters into a buffer whose address is in \na1\n and terminates the string with a \nnull\n byte. Buffer size has to be at least \\(length\\) bytes.\n\n\nExample\n\n\n.globl main\n\n.data\n  string: .zero 256\n\n.text\n\nmain:\n  li a0, 8      # ecall code\n  la a1, string # buffer address\n  li a2, 256    # length\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 8\n\n\n\n\nArguments\n\n\n\n\na1\n = buffer address\n\n\na2\n = length\n\n\n\n\n\n\nSbrk\n\n\nStores a pointer to a block of memory containing \\(n\\) additional bytes in register \na0\n. This pointer is word aligned.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 9   # ecall code\n  li a1, 100 # number of bytes\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 9\n\n\n\n\nArguments\n\n\n\n\na1\n = number of bytes\n\n\n\n\n\n\nExit\n\n\nStops a program from running.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 10 # ecall code\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 10\n\n\n\n\nArguments\n\n\n\n\nnone\n\n\n\n\n\n\nPrint Char\n\n\nPrints a character whose ascii code is in register \na1\n.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 11  # ecall code\n  li a1, 'a' # character to print\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 11\n\n\n\n\nArguments\n\n\n\n\na1\n = ascii code\n\n\n\n\n\n\nRead Char\n\n\nReads a character from \nstdin\n and stores the ascii code in register \na0\n.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 12 # ecall code\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 12\n\n\n\n\nArguments\n\n\n\n\nnone\n\n\n\n\n\n\nOpen\n\n\nOpens a new file and obtains its file descriptor. Stores the file descriptor for the new file in register \na0\n. The file descriptor returned is always the smallest integer greater than zero that is still available. If a negative value is returned, then there was an error opening the file. Maximum number of open files: \n32\n.\n\n\nExample\n\n\n.globl main\n\n.rodata\n  # open flags\n  O_RDWR:  .word 0b0000100\n  O_CREAT: .word 0b0100000\n  O_EXCL:  .word 0b1000000\n  # pathname\n  path: \"example.txt\"\n\n.text\n\nmain:\n  li a0, 13      # ecall code\n  la a1, path    # pathname address\n  lw a2, O_RDWR  # load O_RDWR open flag\n  lw t0, O_CREAT # load O_CREAT open flag\n  lw t1, O_EXCL  # load O_EXCL open flag\n  or a2, a2, t0  # set a2 = O_RDWR | O_CREAT\n  or a2, a2, t1  # set a2 = O_RDWR | O_CREAT | O_EXCL\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 13\n\n\n\n\nArguments\n\n\n\n\na1\n = pathname address\n\n\na2\n = open flags\n\n\n\n\nOpen Flags\n\n\n\n\n\n\n\n\nName\n\n\nCode\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nO_RDONLY\n\n\n0b0000001\n\n\nOpen the file so that it is read only\n\n\n\n\n\n\nO_WRONLY\n\n\n0b0000010\n\n\nOpen the file so that it is write only\n\n\n\n\n\n\nO_RDWR\n\n\n0b0000100\n\n\nOpen the file so that it can be read from and written to\n\n\n\n\n\n\nO_APPEND\n\n\n0b0001000\n\n\nAppend new information to the end of the file\n\n\n\n\n\n\nO_TRUNC\n\n\n0b0010000\n\n\nInitially clear all data from the file\n\n\n\n\n\n\nO_CREAT\n\n\n0b0100000\n\n\nIf the file does not exist, create it\n\n\n\n\n\n\nO_EXCL\n\n\n0b1000000\n\n\nCombined with the O_CREAT option, it ensures that the caller must create the file. If file already exists, the call will fail\n\n\n\n\n\n\n\n\n\n\nRead\n\n\nReads data into a buffer whose address is in register \na2\n. Stores the number of bytes that were read in register \na0\n. If value is negative, then an error occurred.\n\n\nExample\n\n\n.globl main\n\n.data\n  read: .zero 1024\n\n.text\n\nmain:\n  li a0, 14   # ecall code\n  li a1, 1    # file descriptor\n  la a2, read # buffer address\n  li a3, 10   # number of bytes to read\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 14\n\n\n\n\nArguments\n\n\n\n\na1\n = file descriptor\n\n\na2\n = buffer address\n\n\na3\n = number of bytes to read\n\n\n\n\n\n\nWrite\n\n\nWrites data out of a buffer whose address is in register \na2\n. Stores the number of bytes that were written in register \na0\n. If value is negative, then an error occurred.\n\n\nExample\n\n\n.globl main\n\n.data\n  write: .asciiz \"Hello World\"\n\n.text\n\nmain:\n  li a0, 15    # ecall code\n  li a1, 1     # file descriptor\n  la a2, write # buffer address\n  li a3, 12    # number of bytes to write\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 15\n\n\n\n\nArguments\n\n\n\n\na1\n = file descriptor\n\n\na2\n = buffer address\n\n\na3\n = number of bytes to write\n\n\n\n\n\n\nClose\n\n\nClose an open file descriptor. Stores a 0 upon success in register \na0\n, and a -1 upon failure.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 16 # ecall code\n  li a1, 1  # file descriptor\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 16\n\n\n\n\nArguments\n\n\n\n\na1\n = file descriptor\n\n\n\n\n\n\nExit2\n\n\nStops the program from running and takes an argument, which is the value that V-Sim uses in its call on exit.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 17 # ecall code\n  li a1, 1  # status code value\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 17\n\n\n\n\nArguments\n\n\n\n\na1\n = status code\n\n\n\n\n\n\nSleep\n\n\nCauses the V-Sim Java thread to sleep for (at least) the specified number of milliseconds in register \na1\n. This timing will not be precise, as the Java implementation will add some overhead.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 18    # ecall code\n  li a1, 1000  # sleep for 1 second\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 18\n\n\n\n\nArguments\n\n\n\n\na1\n = number of milliseconds\n\n\n\n\n\n\nCwd\n\n\nStores the current working directory in a buffer whose address is in register \na1\n.\n\n\nExample\n\n\n.globl main\n\n.data\n\n  cwd: .zero 1024\n\n.text\n\nmain:\n  li a0, 19  # ecall code\n  la a1, cwd # buffer address\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 19\n\n\n\n\nArguments\n\n\n\n\na1\n = buffer address\n\n\n\n\n\n\nTime\n\n\nStores the system time. \na0\n contains the low order 32 bits of system time and \na1\n high order 32 bits of system time.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 20 # ecall code\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 20\n\n\n\n\nArguments\n\n\n\n\nnone\n\n\n\n\n\n\nPrint Hex\n\n\nPrints integer in register \na1\n in hex representation. Displayed value is 8 hexadecimal digits, left-padding with zeroes if necessary.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 21  # ecall code\n  li a1, 0xa # integer to print in hex\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 21\n\n\n\n\nArguments\n\n\n\n\na1\n = integer\n\n\n\n\n\n\nPrint Binary\n\n\nPrints integer in register \na1\n in binary representation. Displayed value is 32 binary digits, left-padding with zeroes if necessary.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 22  # ecall code\n  li a1, 0xa # integer to print in binary\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 22\n\n\n\n\nArguments\n\n\n\n\na1\n = integer\n\n\n\n\n\n\nPrint Unsigned\n\n\nPrints unsigned integer in register \na1\n.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 23  # ecall code\n  li a1, 0xa # integer to print (unsigned)\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 23\n\n\n\n\nArguments\n\n\n\n\na1\n = integer\n\n\n\n\n\n\nSet Seed\n\n\nSets the seed of the corresponding underlying Java pseudorandom number generator (java.util.Random).\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 24  # ecall code\n  li a1, 123 # seed value\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 24\n\n\n\n\nArguments\n\n\n\n\na1\n = seed\n\n\n\n\n\n\nRandom Int\n\n\nStores the next pseudorandom, uniformly distributed int value from this random number generator's sequence, in register \na0\n.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 25  # ecall code\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 25\n\n\n\n\nArguments\n\n\n\n\nnone\n\n\n\n\n\n\nRandom Int Range\n\n\nStores the next pseudorandom, uniformly distributed int value from this random number generator's sequence, in register \na0\n. The next pseudorandom value will be in [\na1\n, \na2\n] range.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 26  # ecall code\n  li a1, 10  # lower bound\n  li a2, 100 # upper bound\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 26\n\n\n\n\nArguments\n\n\n\n\na1\n = lower bound of range\n\n\na2\n = upper bound of range\n\n\n\n\n\n\nRandom Float\n\n\nStores the next pseudorandom, uniformly distributed float value in the range [0.0, 1.0] from this random number generator's sequence, in register \na0\n.\n\n\nExample\n\n\n.globl main\n\n.text\n\nmain:\n  li a0, 27 # ecall code\n  ecall\n\n\n\n\nEcall Code\n\n\n\n\na0\n = 27\n\n\n\n\nArguments\n\n\n\n\nnone",
+            "title": "Environmental Calls"
+        },
+        {
+            "location": "/ecalls/#ecall",
+            "text": "V-Sim currently supports a total of  25  environmental calls through  ecall  instruction. To use an environmental call, load the ecall  code  into register  a0  and load any arguments into  a1  -  a7  or  fa0 - fa7  (floating-point) registers.",
+            "title": "Ecall"
+        },
+        {
+            "location": "/ecalls/#print-int",
+            "text": "Prints integer in register  a1 .  Example  .globl main\n\n.text\n\nmain:\n  li a0, 1   # ecall code\n  li a1, 0xa # integer to print\n  ecall  Ecall Code   a0  = 1   Arguments   a1  = integer",
+            "title": "Print Int"
+        },
+        {
+            "location": "/ecalls/#print-float",
+            "text": "Prints float in register  fa0 .  Example  .globl main\n\n.rodata\n\n  PI: .float 3.1416\n\n.text\n\nmain:\n  li a0, 2        # ecall code\n  flw fa0, PI, t0 # float to print\n  ecall  Ecall Code   a0  = 2   Arguments   fa0  = float",
+            "title": "Print Float"
+        },
+        {
+            "location": "/ecalls/#print-string",
+            "text": "Prints null-terminated string whose address is in register  a1 .  Example  .globl main\n\n.rodata\n\n  msg: .asciiz \"Hello World!!!\"\n\n.text\n\nmain:\n  li a0, 4   # ecall code\n  la a1, msg # string to print\n  ecall  Ecall Code   a0  = 4   Arguments   a1  = null-terminated string address",
+            "title": "Print String"
+        },
+        {
+            "location": "/ecalls/#read-int",
+            "text": "Reads an integer from  stdin  and stores the result in register  a0 .  Example  .globl main\n\n.text\n\nmain:\n  li a0, 5 # ecall code\n  ecall  Ecall Code   a0  = 5   Arguments   none",
+            "title": "Read Int"
+        },
+        {
+            "location": "/ecalls/#read-float",
+            "text": "Reads a float from  stdin  and stores the result in register  fa0 .  Example  .globl main\n\n.text\n\nmain:\n  li a0, 6 # ecall code\n  ecall  Ecall Code   a0  = 6   Arguments   none",
+            "title": "Read Float"
+        },
+        {
+            "location": "/ecalls/#read-string",
+            "text": "It reads up to \\(length - 1\\) characters into a buffer whose address is in  a1  and terminates the string with a  null  byte. Buffer size has to be at least \\(length\\) bytes.  Example  .globl main\n\n.data\n  string: .zero 256\n\n.text\n\nmain:\n  li a0, 8      # ecall code\n  la a1, string # buffer address\n  li a2, 256    # length\n  ecall  Ecall Code   a0  = 8   Arguments   a1  = buffer address  a2  = length",
+            "title": "Read String"
+        },
+        {
+            "location": "/ecalls/#sbrk",
+            "text": "Stores a pointer to a block of memory containing \\(n\\) additional bytes in register  a0 . This pointer is word aligned.  Example  .globl main\n\n.text\n\nmain:\n  li a0, 9   # ecall code\n  li a1, 100 # number of bytes\n  ecall  Ecall Code   a0  = 9   Arguments   a1  = number of bytes",
+            "title": "Sbrk"
+        },
+        {
+            "location": "/ecalls/#exit",
+            "text": "Stops a program from running.  Example  .globl main\n\n.text\n\nmain:\n  li a0, 10 # ecall code\n  ecall  Ecall Code   a0  = 10   Arguments   none",
+            "title": "Exit"
+        },
+        {
+            "location": "/ecalls/#print-char",
+            "text": "Prints a character whose ascii code is in register  a1 .  Example  .globl main\n\n.text\n\nmain:\n  li a0, 11  # ecall code\n  li a1, 'a' # character to print\n  ecall  Ecall Code   a0  = 11   Arguments   a1  = ascii code",
+            "title": "Print Char"
+        },
+        {
+            "location": "/ecalls/#read-char",
+            "text": "Reads a character from  stdin  and stores the ascii code in register  a0 .  Example  .globl main\n\n.text\n\nmain:\n  li a0, 12 # ecall code\n  ecall  Ecall Code   a0  = 12   Arguments   none",
+            "title": "Read Char"
+        },
+        {
+            "location": "/ecalls/#open",
+            "text": "Opens a new file and obtains its file descriptor. Stores the file descriptor for the new file in register  a0 . The file descriptor returned is always the smallest integer greater than zero that is still available. If a negative value is returned, then there was an error opening the file. Maximum number of open files:  32 .  Example  .globl main\n\n.rodata\n  # open flags\n  O_RDWR:  .word 0b0000100\n  O_CREAT: .word 0b0100000\n  O_EXCL:  .word 0b1000000\n  # pathname\n  path: \"example.txt\"\n\n.text\n\nmain:\n  li a0, 13      # ecall code\n  la a1, path    # pathname address\n  lw a2, O_RDWR  # load O_RDWR open flag\n  lw t0, O_CREAT # load O_CREAT open flag\n  lw t1, O_EXCL  # load O_EXCL open flag\n  or a2, a2, t0  # set a2 = O_RDWR | O_CREAT\n  or a2, a2, t1  # set a2 = O_RDWR | O_CREAT | O_EXCL\n  ecall  Ecall Code   a0  = 13   Arguments   a1  = pathname address  a2  = open flags   Open Flags     Name  Code  Description      O_RDONLY  0b0000001  Open the file so that it is read only    O_WRONLY  0b0000010  Open the file so that it is write only    O_RDWR  0b0000100  Open the file so that it can be read from and written to    O_APPEND  0b0001000  Append new information to the end of the file    O_TRUNC  0b0010000  Initially clear all data from the file    O_CREAT  0b0100000  If the file does not exist, create it    O_EXCL  0b1000000  Combined with the O_CREAT option, it ensures that the caller must create the file. If file already exists, the call will fail",
+            "title": "Open"
+        },
+        {
+            "location": "/ecalls/#read",
+            "text": "Reads data into a buffer whose address is in register  a2 . Stores the number of bytes that were read in register  a0 . If value is negative, then an error occurred.  Example  .globl main\n\n.data\n  read: .zero 1024\n\n.text\n\nmain:\n  li a0, 14   # ecall code\n  li a1, 1    # file descriptor\n  la a2, read # buffer address\n  li a3, 10   # number of bytes to read\n  ecall  Ecall Code   a0  = 14   Arguments   a1  = file descriptor  a2  = buffer address  a3  = number of bytes to read",
+            "title": "Read"
+        },
+        {
+            "location": "/ecalls/#write",
+            "text": "Writes data out of a buffer whose address is in register  a2 . Stores the number of bytes that were written in register  a0 . If value is negative, then an error occurred.  Example  .globl main\n\n.data\n  write: .asciiz \"Hello World\"\n\n.text\n\nmain:\n  li a0, 15    # ecall code\n  li a1, 1     # file descriptor\n  la a2, write # buffer address\n  li a3, 12    # number of bytes to write\n  ecall  Ecall Code   a0  = 15   Arguments   a1  = file descriptor  a2  = buffer address  a3  = number of bytes to write",
+            "title": "Write"
+        },
+        {
+            "location": "/ecalls/#close",
+            "text": "Close an open file descriptor. Stores a 0 upon success in register  a0 , and a -1 upon failure.  Example  .globl main\n\n.text\n\nmain:\n  li a0, 16 # ecall code\n  li a1, 1  # file descriptor\n  ecall  Ecall Code   a0  = 16   Arguments   a1  = file descriptor",
+            "title": "Close"
+        },
+        {
+            "location": "/ecalls/#exit2",
+            "text": "Stops the program from running and takes an argument, which is the value that V-Sim uses in its call on exit.  Example  .globl main\n\n.text\n\nmain:\n  li a0, 17 # ecall code\n  li a1, 1  # status code value\n  ecall  Ecall Code   a0  = 17   Arguments   a1  = status code",
+            "title": "Exit2"
+        },
+        {
+            "location": "/ecalls/#sleep",
+            "text": "Causes the V-Sim Java thread to sleep for (at least) the specified number of milliseconds in register  a1 . This timing will not be precise, as the Java implementation will add some overhead.  Example  .globl main\n\n.text\n\nmain:\n  li a0, 18    # ecall code\n  li a1, 1000  # sleep for 1 second\n  ecall  Ecall Code   a0  = 18   Arguments   a1  = number of milliseconds",
+            "title": "Sleep"
+        },
+        {
+            "location": "/ecalls/#cwd",
+            "text": "Stores the current working directory in a buffer whose address is in register  a1 .  Example  .globl main\n\n.data\n\n  cwd: .zero 1024\n\n.text\n\nmain:\n  li a0, 19  # ecall code\n  la a1, cwd # buffer address\n  ecall  Ecall Code   a0  = 19   Arguments   a1  = buffer address",
+            "title": "Cwd"
+        },
+        {
+            "location": "/ecalls/#time",
+            "text": "Stores the system time.  a0  contains the low order 32 bits of system time and  a1  high order 32 bits of system time.  Example  .globl main\n\n.text\n\nmain:\n  li a0, 20 # ecall code\n  ecall  Ecall Code   a0  = 20   Arguments   none",
+            "title": "Time"
+        },
+        {
+            "location": "/ecalls/#print-hex",
+            "text": "Prints integer in register  a1  in hex representation. Displayed value is 8 hexadecimal digits, left-padding with zeroes if necessary.  Example  .globl main\n\n.text\n\nmain:\n  li a0, 21  # ecall code\n  li a1, 0xa # integer to print in hex\n  ecall  Ecall Code   a0  = 21   Arguments   a1  = integer",
+            "title": "Print Hex"
+        },
+        {
+            "location": "/ecalls/#print-binary",
+            "text": "Prints integer in register  a1  in binary representation. Displayed value is 32 binary digits, left-padding with zeroes if necessary.  Example  .globl main\n\n.text\n\nmain:\n  li a0, 22  # ecall code\n  li a1, 0xa # integer to print in binary\n  ecall  Ecall Code   a0  = 22   Arguments   a1  = integer",
+            "title": "Print Binary"
+        },
+        {
+            "location": "/ecalls/#print-unsigned",
+            "text": "Prints unsigned integer in register  a1 .  Example  .globl main\n\n.text\n\nmain:\n  li a0, 23  # ecall code\n  li a1, 0xa # integer to print (unsigned)\n  ecall  Ecall Code   a0  = 23   Arguments   a1  = integer",
+            "title": "Print Unsigned"
+        },
+        {
+            "location": "/ecalls/#set-seed",
+            "text": "Sets the seed of the corresponding underlying Java pseudorandom number generator (java.util.Random).  Example  .globl main\n\n.text\n\nmain:\n  li a0, 24  # ecall code\n  li a1, 123 # seed value\n  ecall  Ecall Code   a0  = 24   Arguments   a1  = seed",
+            "title": "Set Seed"
+        },
+        {
+            "location": "/ecalls/#random-int",
+            "text": "Stores the next pseudorandom, uniformly distributed int value from this random number generator's sequence, in register  a0 .  Example  .globl main\n\n.text\n\nmain:\n  li a0, 25  # ecall code\n  ecall  Ecall Code   a0  = 25   Arguments   none",
+            "title": "Random Int"
+        },
+        {
+            "location": "/ecalls/#random-int-range",
+            "text": "Stores the next pseudorandom, uniformly distributed int value from this random number generator's sequence, in register  a0 . The next pseudorandom value will be in [ a1 ,  a2 ] range.  Example  .globl main\n\n.text\n\nmain:\n  li a0, 26  # ecall code\n  li a1, 10  # lower bound\n  li a2, 100 # upper bound\n  ecall  Ecall Code   a0  = 26   Arguments   a1  = lower bound of range  a2  = upper bound of range",
+            "title": "Random Int Range"
+        },
+        {
+            "location": "/ecalls/#random-float",
+            "text": "Stores the next pseudorandom, uniformly distributed float value in the range [0.0, 1.0] from this random number generator's sequence, in register  a0 .  Example  .globl main\n\n.text\n\nmain:\n  li a0, 27 # ecall code\n  ecall  Ecall Code   a0  = 27   Arguments   none",
+            "title": "Random Float"
         },
         {
             "location": "/instructions/",

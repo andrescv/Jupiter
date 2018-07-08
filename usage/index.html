@@ -21,7 +21,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Usage";
+    var mkdocs_page_name = "Using V-Sim";
     var mkdocs_page_input_path = "usage.md";
     var mkdocs_page_url = "/usage/";
   </script>
@@ -59,14 +59,28 @@
     <a class="" href="..">Home</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Usage</a>
+    <span class="caption-text">User Guide</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Using V-Sim</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#basic-usage">Basic Usage</a></li>
+    <li class="toctree-l3"><a href="#basic-usage">Basic Usage</a></li>
     
 
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../directives/">Directives</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ecalls/">Environmental Calls</a>
+                </li>
     </ul>
 	    </li>
           
@@ -101,8 +115,12 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
+        
+          <li>User Guide &raquo;</li>
+        
+      
     
-    <li>Usage</li>
+    <li>Using V-Sim</li>
     <li class="wy-breadcrumbs-aside">
         
           
@@ -116,7 +134,173 @@
             <div class="section">
               
                 <h1 id="basic-usage">Basic Usage</h1>
-<p>TODO</p>
+<p>Once the simulator has been installed, you can get familiar with the CLI opening a terminal and putting the following <code>vsim -help</code>, that will output something like:</p>
+<pre><code class="shell">$ vsim -help
+ _   __    _____
+| | / /___/ __(_)_ _
+| |/ /___/\ \/ /  ' \
+|___/   /___/_/_/_/_/
+
+RISC-V Assembler &amp; Runtime Simulator
+
+GPL-3.0 License
+Copyright (c) 2018 Andres Castellanos
+All Rights Reserved
+See the file LICENSE for a full copyright notice
+
+usage: vsim [options] &lt;files&gt;
+
+available options:
+  -bare         bare machine (no pseudo-ops)
+  -debug        start the debugger
+  -dump DUMP    dump machine code to a file
+  -help         show this help message and exit
+  -iset         print available RISC-V instructions and exit
+  -nocolor      do not colorize output
+  -notitle      do not print title and copyright notice
+  -quiet        do not print warnings
+  -start START  start program at global label (default: main)
+  -usage USAGE  print usage of an instruction and exit
+  -version      show the simulator version and exit
+</code></pre>
+
+<p>As you can see there are some options that you can pass to the simulator, for example <code>-help</code> was the
+one that you used previously. Here is a detailed table of each option:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Option</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">-bare</td>
+<td align="center">bare machine mode, no pseudo-instructions available (TAL)</td>
+</tr>
+<tr>
+<td align="center">-debug</td>
+<td align="center">start the debugger after assembling all files</td>
+</tr>
+<tr>
+<td align="center">-dump DUMP</td>
+<td align="center">dump all the generated machine code to a file</td>
+</tr>
+<tr>
+<td align="center">-help</td>
+<td align="center">show the simulator help message and exit</td>
+</tr>
+<tr>
+<td align="center">-iset</td>
+<td align="center">print the available/implemented RISC-V instructions and exit</td>
+</tr>
+<tr>
+<td align="center">-nocolor</td>
+<td align="center">do not colorize output (only applicable for Linux users)</td>
+</tr>
+<tr>
+<td align="center">-notitle</td>
+<td align="center">do not print title and copyright notice (useful if redirecting or piping program output)</td>
+</tr>
+<tr>
+<td align="center">-quiet</td>
+<td align="center">do not print warnings during the simulation</td>
+</tr>
+<tr>
+<td align="center">-start START</td>
+<td align="center">start program at global label (default: main)</td>
+</tr>
+<tr>
+<td align="center">-usage USAGE</td>
+<td align="center">print detailed usage and description of an instruction and exit</td>
+</tr>
+<tr>
+<td align="center">-version</td>
+<td align="center">show the simulator version and exit</td>
+</tr>
+</tbody>
+</table>
+<p>Now we can try an example, the legendary <a href="https://raw.githubusercontent.com/andrescv/VSim/master/examples/fibonacci.s">fibonacci</a> program. Download and save the file with the name <code>fibonacci.s</code> and put this in the terminal <code>vsim fibonacci.s</code> that will output something like:</p>
+<pre><code class="shell">$ vsim fibonacci.s
+ _   __    _____
+| | / /___/ __(_)_ _
+| |/ /___/\ \/ /  ' \
+|___/   /___/_/_/_/_/
+
+RISC-V Assembler &amp; Runtime Simulator
+
+GPL-3.0 License
+Copyright (c) 2018 Andres Castellanos
+All Rights Reserved
+See the file LICENSE for a full copyright notice
+
+Please enter a number:
+</code></pre>
+
+<p>Because this program is using the <code>READ_INT</code> environmental call, the program asks you to enter a number, you can enter for example the number 9 and the result will be:</p>
+<pre><code class="shell">$ vsim fibonacci.s
+ _   __    _____
+| | / /___/ __(_)_ _
+| |/ /___/\ \/ /  ' \
+|___/   /___/_/_/_/_/
+
+RISC-V Assembler &amp; Runtime Simulator
+
+GPL-3.0 License
+Copyright (c) 2018 Andres Castellanos
+All Rights Reserved
+See the file LICENSE for a full copyright notice
+
+Please enter a number: 9
+
+The 9 fibonnaci number is: 34
+
+vsim: exit(0)
+</code></pre>
+
+<p>And that is the basic usage of the V-Sim simulator, you can also assemble and simulate several files at the same time, the only restriction is that you always have to define a global <code>main</code> label, even if it is a single file as this tells V-Sim where to start the simulation. Alternatively you can define a global label with another name and pass the <code>-start &lt;labelname&gt;</code> option to the simulator e.g.</p>
+<pre><code class="asm">#####################
+#     example.s     #
+#####################
+
+.globl start
+
+.rodata
+
+msg: .asciiz &quot;hello world&quot;
+
+.text
+
+start:
+  li a0, 4
+  la a1, msg
+  ecall
+  li a0, 10
+  ecall
+</code></pre>
+
+<pre><code class="shell">$ vsim -start start example.s
+ _   __    _____
+| | / /___/ __(_)_ _
+| |/ /___/\ \/ /  ' \
+|___/   /___/_/_/_/_/
+
+RISC-V Assembler &amp; Runtime Simulator
+
+GPL-3.0 License
+Copyright (c) 2018 Andres Castellanos
+All Rights Reserved
+See the file LICENSE for a full copyright notice
+
+hello world
+vsim: exit(0)
+</code></pre>
+
+<p><strong>Support Material</strong></p>
+<ul>
+<li><a href="#">The RISC-V Reader</a></li>
+<li><a href="#">RISC-V Green Card</a></li>
+</ul>
               
             </div>
           </div>
@@ -124,7 +308,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../instructions/" class="btn btn-neutral float-right" title="Instructions">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../directives/" class="btn btn-neutral float-right" title="Directives">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -160,12 +344,13 @@
         <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../instructions/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../directives/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       <script src="../search/require.js"></script>
       <script src="../search/search.js"></script>
 

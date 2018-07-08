@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Andrés Castellanos">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>V-Sim Documentation</title>
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="../css/vsim_theme.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Environmental Calls";
+    var mkdocs_page_input_path = "ecalls.md";
+    var mkdocs_page_url = "/ecalls/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+  <a href="https://github.com/andrescv/V-Sim" class="logo">
+    <img src="../img/vsim-logo.png" alt="V-Sim">
+  </a>
+
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">User Guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../usage/">Using V-Sim</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../directives/">Directives</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Environmental Calls</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#ecall">Ecall</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#print-int">Print Int</a></li>
+        
+            <li><a class="toctree-l4" href="#print-float">Print Float</a></li>
+        
+            <li><a class="toctree-l4" href="#print-string">Print String</a></li>
+        
+            <li><a class="toctree-l4" href="#read-int">Read Int</a></li>
+        
+            <li><a class="toctree-l4" href="#read-float">Read Float</a></li>
+        
+            <li><a class="toctree-l4" href="#read-string">Read String</a></li>
+        
+            <li><a class="toctree-l4" href="#sbrk">Sbrk</a></li>
+        
+            <li><a class="toctree-l4" href="#exit">Exit</a></li>
+        
+            <li><a class="toctree-l4" href="#print-char">Print Char</a></li>
+        
+            <li><a class="toctree-l4" href="#read-char">Read Char</a></li>
+        
+            <li><a class="toctree-l4" href="#open">Open</a></li>
+        
+            <li><a class="toctree-l4" href="#read">Read</a></li>
+        
+            <li><a class="toctree-l4" href="#write">Write</a></li>
+        
+            <li><a class="toctree-l4" href="#close">Close</a></li>
+        
+            <li><a class="toctree-l4" href="#exit2">Exit2</a></li>
+        
+            <li><a class="toctree-l4" href="#sleep">Sleep</a></li>
+        
+            <li><a class="toctree-l4" href="#cwd">Cwd</a></li>
+        
+            <li><a class="toctree-l4" href="#time">Time</a></li>
+        
+            <li><a class="toctree-l4" href="#print-hex">Print Hex</a></li>
+        
+            <li><a class="toctree-l4" href="#print-binary">Print Binary</a></li>
+        
+            <li><a class="toctree-l4" href="#print-unsigned">Print Unsigned</a></li>
+        
+            <li><a class="toctree-l4" href="#set-seed">Set Seed</a></li>
+        
+            <li><a class="toctree-l4" href="#random-int">Random Int</a></li>
+        
+            <li><a class="toctree-l4" href="#random-int-range">Random Int Range</a></li>
+        
+            <li><a class="toctree-l4" href="#random-float">Random Float</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../instructions/">Instructions</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../license/">License</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">V-Sim Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User Guide &raquo;</li>
+        
+      
+    
+    <li>Environmental Calls</li>
+    <li class="wy-breadcrumbs-aside">
+        
+          
+          <a href="https://github.com/andrescv/V-Sim/edit/master/docs/docs/ecalls.md" class="icon icon-github"> Edit on Github</a>
+        
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="ecall">Ecall</h1>
+<p>V-Sim currently supports a total of <strong>25</strong> environmental calls through <code>ecall</code> instruction. To use an environmental call, load the ecall <code>code</code> into register <code>a0</code> and load any arguments into <code>a1</code> - <code>a7</code> or <code>fa0</code>-<code>fa7</code> (floating-point) registers.</p>
+<hr />
+<h3 id="print-int">Print Int</h3>
+<p>Prints integer in register <code>a1</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 1   # ecall code
+  li a1, 0xa # integer to print
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 1</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = integer</li>
+</ul>
+<hr />
+<h3 id="print-float">Print Float</h3>
+<p>Prints float in register <code>fa0</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.rodata
+
+  PI: .float 3.1416
+
+.text
+
+main:
+  li a0, 2        # ecall code
+  flw fa0, PI, t0 # float to print
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 2</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>fa0</code> = float</li>
+</ul>
+<hr />
+<h3 id="print-string">Print String</h3>
+<p>Prints null-terminated string whose address is in register <code>a1</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="assembly">.globl main
+
+.rodata
+
+  msg: .asciiz &quot;Hello World!!!&quot;
+
+.text
+
+main:
+  li a0, 4   # ecall code
+  la a1, msg # string to print
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 4</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = null-terminated string address</li>
+</ul>
+<hr />
+<h3 id="read-int">Read Int</h3>
+<p>Reads an integer from <code>stdin</code> and stores the result in register <code>a0</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="assembly">.globl main
+
+.text
+
+main:
+  li a0, 5 # ecall code
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 5</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<hr />
+<h3 id="read-float">Read Float</h3>
+<p>Reads a float from <code>stdin</code> and stores the result in register <code>fa0</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 6 # ecall code
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 6</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<hr />
+<h3 id="read-string">Read String</h3>
+<p>It reads up to \(length - 1\) characters into a buffer whose address is in <code>a1</code> and terminates the string with a <code>null</code> byte. Buffer size has to be at least \(length\) bytes.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.data
+  string: .zero 256
+
+.text
+
+main:
+  li a0, 8      # ecall code
+  la a1, string # buffer address
+  li a2, 256    # length
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 8</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = buffer address</li>
+<li><code>a2</code> = length</li>
+</ul>
+<hr />
+<h3 id="sbrk">Sbrk</h3>
+<p>Stores a pointer to a block of memory containing \(n\) additional bytes in register <code>a0</code>. This pointer is word aligned.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 9   # ecall code
+  li a1, 100 # number of bytes
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 9</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = number of bytes</li>
+</ul>
+<hr />
+<h3 id="exit">Exit</h3>
+<p>Stops a program from running.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 10 # ecall code
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 10</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<hr />
+<h3 id="print-char">Print Char</h3>
+<p>Prints a character whose ascii code is in register <code>a1</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 11  # ecall code
+  li a1, 'a' # character to print
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 11</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = ascii code</li>
+</ul>
+<hr />
+<h3 id="read-char">Read Char</h3>
+<p>Reads a character from <code>stdin</code> and stores the ascii code in register <code>a0</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 12 # ecall code
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 12</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<hr />
+<h3 id="open">Open</h3>
+<p>Opens a new file and obtains its file descriptor. Stores the file descriptor for the new file in register <code>a0</code>. The file descriptor returned is always the smallest integer greater than zero that is still available. If a negative value is returned, then there was an error opening the file. Maximum number of open files: <strong>32</strong>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.rodata
+  # open flags
+  O_RDWR:  .word 0b0000100
+  O_CREAT: .word 0b0100000
+  O_EXCL:  .word 0b1000000
+  # pathname
+  path: &quot;example.txt&quot;
+
+.text
+
+main:
+  li a0, 13      # ecall code
+  la a1, path    # pathname address
+  lw a2, O_RDWR  # load O_RDWR open flag
+  lw t0, O_CREAT # load O_CREAT open flag
+  lw t1, O_EXCL  # load O_EXCL open flag
+  or a2, a2, t0  # set a2 = O_RDWR | O_CREAT
+  or a2, a2, t1  # set a2 = O_RDWR | O_CREAT | O_EXCL
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 13</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = pathname address</li>
+<li><code>a2</code> = open flags</li>
+</ul>
+<p><strong>Open Flags</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Code</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">O_RDONLY</td>
+<td align="center"><code>0b0000001</code></td>
+<td align="center">Open the file so that it is read only</td>
+</tr>
+<tr>
+<td align="center">O_WRONLY</td>
+<td align="center"><code>0b0000010</code></td>
+<td align="center">Open the file so that it is write only</td>
+</tr>
+<tr>
+<td align="center">O_RDWR</td>
+<td align="center"><code>0b0000100</code></td>
+<td align="center">Open the file so that it can be read from and written to</td>
+</tr>
+<tr>
+<td align="center">O_APPEND</td>
+<td align="center"><code>0b0001000</code></td>
+<td align="center">Append new information to the end of the file</td>
+</tr>
+<tr>
+<td align="center">O_TRUNC</td>
+<td align="center"><code>0b0010000</code></td>
+<td align="center">Initially clear all data from the file</td>
+</tr>
+<tr>
+<td align="center">O_CREAT</td>
+<td align="center"><code>0b0100000</code></td>
+<td align="center">If the file does not exist, create it</td>
+</tr>
+<tr>
+<td align="center">O_EXCL</td>
+<td align="center"><code>0b1000000</code></td>
+<td align="center">Combined with the O_CREAT option, it ensures that the caller must create the file. If file already exists, the call will fail</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="read">Read</h3>
+<p>Reads data into a buffer whose address is in register <code>a2</code>. Stores the number of bytes that were read in register <code>a0</code>. If value is negative, then an error occurred.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.data
+  read: .zero 1024
+
+.text
+
+main:
+  li a0, 14   # ecall code
+  li a1, 1    # file descriptor
+  la a2, read # buffer address
+  li a3, 10   # number of bytes to read
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 14</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = file descriptor</li>
+<li><code>a2</code> = buffer address</li>
+<li><code>a3</code> = number of bytes to read</li>
+</ul>
+<hr />
+<h3 id="write">Write</h3>
+<p>Writes data out of a buffer whose address is in register <code>a2</code>. Stores the number of bytes that were written in register <code>a0</code>. If value is negative, then an error occurred.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.data
+  write: .asciiz &quot;Hello World&quot;
+
+.text
+
+main:
+  li a0, 15    # ecall code
+  li a1, 1     # file descriptor
+  la a2, write # buffer address
+  li a3, 12    # number of bytes to write
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 15</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = file descriptor</li>
+<li><code>a2</code> = buffer address</li>
+<li><code>a3</code> = number of bytes to write</li>
+</ul>
+<hr />
+<h3 id="close">Close</h3>
+<p>Close an open file descriptor. Stores a 0 upon success in register <code>a0</code>, and a -1 upon failure.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 16 # ecall code
+  li a1, 1  # file descriptor
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 16</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = file descriptor</li>
+</ul>
+<hr />
+<h3 id="exit2">Exit2</h3>
+<p>Stops the program from running and takes an argument, which is the value that V-Sim uses in its call on exit.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 17 # ecall code
+  li a1, 1  # status code value
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 17</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = status code</li>
+</ul>
+<hr />
+<h3 id="sleep">Sleep</h3>
+<p>Causes the V-Sim Java thread to sleep for (at least) the specified number of milliseconds in register <code>a1</code>. This timing will not be precise, as the Java implementation will add some overhead.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 18    # ecall code
+  li a1, 1000  # sleep for 1 second
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 18</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = number of milliseconds</li>
+</ul>
+<hr />
+<h3 id="cwd">Cwd</h3>
+<p>Stores the current working directory in a buffer whose address is in register <code>a1</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.data
+
+  cwd: .zero 1024
+
+.text
+
+main:
+  li a0, 19  # ecall code
+  la a1, cwd # buffer address
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 19</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = buffer address</li>
+</ul>
+<hr />
+<h3 id="time">Time</h3>
+<p>Stores the system time. <code>a0</code> contains the low order 32 bits of system time and <code>a1</code> high order 32 bits of system time.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 20 # ecall code
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 20</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<hr />
+<h3 id="print-hex">Print Hex</h3>
+<p>Prints integer in register <code>a1</code> in hex representation. Displayed value is 8 hexadecimal digits, left-padding with zeroes if necessary.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 21  # ecall code
+  li a1, 0xa # integer to print in hex
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 21</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = integer</li>
+</ul>
+<hr />
+<h3 id="print-binary">Print Binary</h3>
+<p>Prints integer in register <code>a1</code> in binary representation. Displayed value is 32 binary digits, left-padding with zeroes if necessary.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 22  # ecall code
+  li a1, 0xa # integer to print in binary
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 22</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = integer</li>
+</ul>
+<hr />
+<h3 id="print-unsigned">Print Unsigned</h3>
+<p>Prints unsigned integer in register <code>a1</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 23  # ecall code
+  li a1, 0xa # integer to print (unsigned)
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 23</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = integer</li>
+</ul>
+<hr />
+<h3 id="set-seed">Set Seed</h3>
+<p>Sets the seed of the corresponding underlying Java pseudorandom number generator (java.util.Random).</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 24  # ecall code
+  li a1, 123 # seed value
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 24</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = seed</li>
+</ul>
+<hr />
+<h3 id="random-int">Random Int</h3>
+<p>Stores the next pseudorandom, uniformly distributed int value from this random number generator's sequence, in register <code>a0</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 25  # ecall code
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 25</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+<hr />
+<h3 id="random-int-range">Random Int Range</h3>
+<p>Stores the next pseudorandom, uniformly distributed int value from this random number generator's sequence, in register <code>a0</code>. The next pseudorandom value will be in [<code>a1</code>, <code>a2</code>] range.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 26  # ecall code
+  li a1, 10  # lower bound
+  li a2, 100 # upper bound
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 26</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>a1</code> = lower bound of range</li>
+<li><code>a2</code> = upper bound of range</li>
+</ul>
+<hr />
+<h3 id="random-float">Random Float</h3>
+<p>Stores the next pseudorandom, uniformly distributed float value in the range [0.0, 1.0] from this random number generator's sequence, in register <code>a0</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">.globl main
+
+.text
+
+main:
+  li a0, 27 # ecall code
+  ecall
+</code></pre>
+
+<p><strong>Ecall Code</strong></p>
+<ul>
+<li><code>a0</code> = 27</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>none</strong></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../instructions/" class="btn btn-neutral float-right" title="Instructions">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../directives/" class="btn btn-neutral" title="Directives"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© Copyright 2018, Andrés Castellanos</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/andrescv/V-Sim/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../directives/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../instructions/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>
