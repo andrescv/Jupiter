@@ -86,7 +86,17 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../instructions/">Instructions</a>
+    <span class="caption-text">Instructions</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../instructions/">Base Instructions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../pseudos/">Extended Instructions</a>
+                </li>
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -237,7 +247,7 @@ See the file LICENSE for a full copyright notice
 Please enter a number:
 </code></pre>
 
-<p>Because this program is using the <code>READ_INT</code> environmental call, the program asks you to enter a number, you can enter for example the number 9 and the result will be:</p>
+<p>Because this program is using the <a href="../ecalls/#read-int">Read Int</a> environmental call, the program asks you to enter a number, you can enter for example the number 9 and the result will be:</p>
 <pre><code class="shell">$ vsim fibonacci.s
  _   __    _____
 | | / /___/ __(_)_ _
