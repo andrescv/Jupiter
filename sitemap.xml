@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://github.com/andrescv/V-Sim/</loc>
-     <lastmod>2018-07-09</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://github.com/andrescv/V-Sim/usage/</loc>
-     <lastmod>2018-07-09</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://github.com/andrescv/V-Sim/directives/</loc>
-     <lastmod>2018-07-09</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://github.com/andrescv/V-Sim/ecalls/</loc>
-     <lastmod>2018-07-09</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://github.com/andrescv/V-Sim/instructions/</loc>
-     <lastmod>2018-07-09</lastmod>
+     <loc>https://github.com/andrescv/V-Sim/rtype/</loc>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://github.com/andrescv/V-Sim/pseudos/</loc>
-     <lastmod>2018-07-09</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://github.com/andrescv/V-Sim/license/</loc>
-     <lastmod>2018-07-09</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

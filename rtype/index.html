@@ -16,14 +16,14 @@
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
-  <link rel="stylesheet" href="../css/vsim_theme.css">
+  <link rel="stylesheet" href="../css/vsim_theme.min.css">
 
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Base Instructions";
-    var mkdocs_page_input_path = "instructions.md";
-    var mkdocs_page_url = "/instructions/";
+    var mkdocs_page_name = "R Type";
+    var mkdocs_page_input_path = "rtype.md";
+    var mkdocs_page_url = "/rtype/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -84,12 +84,18 @@
     <ul class="subnav">
                 <li class=" current">
                     
-    <a class="current" href="./">Base Instructions</a>
+    <span class="caption-text">Base Instructions</span>
+    <ul class="subnav">
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">R Type</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#supported-instructions">Supported Instructions</a></li>
+    <li class="toctree-l4"><a href="#sll">Sll</a></li>
     
 
+    </ul>
+                </li>
     </ul>
                 </li>
                 <li class="">
@@ -129,12 +135,16 @@
           <li>Instructions &raquo;</li>
         
       
+        
+          <li>Base Instructions &raquo;</li>
+        
+      
     
-    <li>Base Instructions</li>
+    <li>R Type</li>
     <li class="wy-breadcrumbs-aside">
         
           
-          <a href="https://github.com/andrescv/V-Sim/edit/master/docs/docs/instructions.md" class="icon icon-github"> Edit on Github</a>
+          <a href="https://github.com/andrescv/V-Sim/edit/master/docs/docs/rtype.md" class="icon icon-github"> Edit on Github</a>
         
     </li>
   </ul>
@@ -143,8 +153,12 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="supported-instructions">Supported Instructions</h1>
-<p>TODO</p>
+                <h3 id="sll">Sll</h3>
+<p><em>Shift Left Logical</em>. <code>RV32I</code>. Set x[rd] = x[rs1] &lt;&lt; x[rs2]</p>
+<p>Shifts register x[rs1] left by x[rs2] bit positions. The vacated bits are filled with zeros, and the result is written to x[rd]. The least-significant five bits of x[rs2] form the shift amount (the upper bits are ignored).</p>
+<p><strong>Example</strong></p>
+<pre><code class="asm">sll rd, rs1, offset(rs1)
+</code></pre>
               
             </div>
           </div>
