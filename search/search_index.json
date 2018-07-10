@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "V-Sim\n\n\n\n  \n\n  \n\n    \n\n  \n\n  \n\n    \n\n  \n\n  \n\n    \n\n  \n\n  \n\n    \n\n  \n\n\n\n\n\nV-Sim is a simple assembler and runtime simulator inspired by \nSPIM\n for programming in \nRISC-V\n assembly language and intended for educational purposes. One of the main goals was to make it functional and easy to use. Almost all the 32-bit base integer instruction set (\nRV32I\n) can be simulated, as well as the \nM\n and \nF\n extensions plus all the their respective pseudo-instructions.\n\n\n\n\nInstallation\n\n\nTo install or update V-Sim, you can use the installation script.\n\n\nwith \ncURL\n:\n\n\n$ curl https://git.io/fbpu0 -L -o vsim && chmod +x vsim && . ./vsim && rm vsim\n\n\n\n\nor \nWget\n:\n\n\n$ wget -O vsim https://git.io/fbpu0 && chmod +x vsim && . ./vsim && rm vsim\n\n\n\n\nTo verify that V-Sim has been installed, do:\n\n\n$ vsim -version\n\n\n\n\nwhich should output \nvsim-v1.0.0\n if the installation was successful.",
+            "text": "V-Sim\n\n\n\n  \n\n  \n\n    \n\n  \n\n  \n\n    \n\n  \n\n  \n\n    \n\n  \n\n  \n\n    \n\n  \n\n\n\n\n\nV-Sim is a simple assembler and runtime simulator inspired by \nSPIM\n for programming in \nRISC-V\n assembly language and intended for educational purposes. One of the main goals was to make it functional and easy to use. Almost all the 32-bit base integer instruction set (\nRV32I\n) can be simulated, as well as the \nM\n and \nF\n extensions plus all the their respective pseudo-instructions.\n\n\n\n\nInstallation\n\n\nTo install or update V-Sim, you can use the installation script.\n\n\nwith \ncURL\n:\n\n\n$ curl https://git.io/fbpu0 -L -o vsim && chmod +x vsim && . ./vsim && rm vsim\n\n\n\n\nor \nWget\n:\n\n\n$ wget -O vsim https://git.io/fbpu0 && chmod +x vsim && . ./vsim && rm vsim\n\n\n\n\nTo verify that V-Sim has been installed, do:\n\n\n$ vsim -version\n\n\n\n\nwhich should output \nv1.0.0\n if the installation was successful.",
             "title": "Home"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "location": "/#installation",
-            "text": "To install or update V-Sim, you can use the installation script.  with  cURL :  $ curl https://git.io/fbpu0 -L -o vsim && chmod +x vsim && . ./vsim && rm vsim  or  Wget :  $ wget -O vsim https://git.io/fbpu0 && chmod +x vsim && . ./vsim && rm vsim  To verify that V-Sim has been installed, do:  $ vsim -version  which should output  vsim-v1.0.0  if the installation was successful.",
+            "text": "To install or update V-Sim, you can use the installation script.  with  cURL :  $ curl https://git.io/fbpu0 -L -o vsim && chmod +x vsim && . ./vsim && rm vsim  or  Wget :  $ wget -O vsim https://git.io/fbpu0 && chmod +x vsim && . ./vsim && rm vsim  To verify that V-Sim has been installed, do:  $ vsim -version  which should output  v1.0.0  if the installation was successful.",
             "title": "Installation"
         },
         {
