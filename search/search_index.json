@@ -241,21 +241,6 @@
             "title": "Random Float"
         },
         {
-            "location": "/rtype/",
-            "text": "Sll\n\n\nShift Left Logical\n. \nRV32I\n. Set x[rd] = x[rs1] << x[rs2]\n\n\nShifts register x[rs1] left by x[rs2] bit positions. The vacated bits are filled with zeros, and the result is written to x[rd]. The least-significant five bits of x[rs2] form the shift amount (the upper bits are ignored).\n\n\nExample\n\n\nsll rd, rs1, offset(rs1)",
-            "title": "R Type"
-        },
-        {
-            "location": "/rtype/#sll",
-            "text": "Shift Left Logical .  RV32I . Set x[rd] = x[rs1] << x[rs2]  Shifts register x[rs1] left by x[rs2] bit positions. The vacated bits are filled with zeros, and the result is written to x[rd]. The least-significant five bits of x[rs2] form the shift amount (the upper bits are ignored).  Example  sll rd, rs1, offset(rs1)",
-            "title": "Sll"
-        },
-        {
-            "location": "/pseudos/",
-            "text": "",
-            "title": "Extended Instructions"
-        },
-        {
             "location": "/license/",
             "text": "License\n\n\nCopyright (C) 2018  Andr\u00e9s Castellanos\n\n\nThis program is free software: you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or\n(at your option) any later version.\n\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\n\nYou should have received a copy of the GNU General Public License\nalong with this program.  If not, see \nhttps://www.gnu.org/licenses/\n.",
             "title": "License"
