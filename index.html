@@ -63,7 +63,13 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#installation">Installation</a></li>
+            <li><a class="toctree-l3" href="#dependencies">Dependencies</a></li>
+        
+            <li><a class="toctree-l3" href="#unix-installation">Unix Installation</a></li>
+        
+            <li><a class="toctree-l3" href="#windows-installation">Windows Installation</a></li>
+        
+            <li><a class="toctree-l3" href="#testing-installation">Testing Installation</a></li>
         
         </ul>
     
@@ -149,8 +155,16 @@
 
 <p>V-Sim is a simple assembler and runtime simulator inspired by <em>SPIM</em> for programming in <strong>RISC-V</strong> assembly language and intended for educational purposes. One of the main goals was to make it functional and easy to use. Almost all the 32-bit base integer instruction set (<code>RV32I</code>) can be simulated, as well as the <code>M</code> and <code>F</code> extensions plus all the their respective pseudo-instructions.</p>
 <hr />
-<h2 id="installation">Installation</h2>
-<p>To install or update V-Sim, you can use the installation script.</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>V-Sim requires Java <strong>8</strong> SE (or later) SDK installed on your computer.</p>
+<p align="center">
+  <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">
+    <img src="./img/button.png" alt="Download Java">
+  </a>
+</p>
+
+<h2 id="unix-installation">Unix Installation</h2>
+<p>To install or update V-Sim on a <em>Unix</em> system, you can use the (fancy) installation script.</p>
 <p>with <strong>cURL</strong>:</p>
 <pre><code class="shell">$ curl https://git.io/fbpu0 -L -o vsim &amp;&amp; chmod +x vsim &amp;&amp; . ./vsim &amp;&amp; rm vsim
 </code></pre>
@@ -159,11 +173,25 @@
 <pre><code class="shell">$ wget -O vsim https://git.io/fbpu0 &amp;&amp; chmod +x vsim &amp;&amp; . ./vsim &amp;&amp; rm vsim
 </code></pre>
 
-<p>To verify that V-Sim has been installed, do:</p>
+<h2 id="windows-installation">Windows Installation</h2>
+<p>To install or update V-Sim on a <em>Windows</em> PC, you need to follow the steps below.</p>
+<p><strong>1.</strong> Download the lastest stable release from <a href="https://github.com/andrescv/V-Sim/releases/download/v1.0.0/v1.0.0.zip">here</a>.</p>
+<p><strong>2.</strong> Unzip and move all the files to your preferred directory, say <code>C:\vsim</code>.</p>
+<p><strong>3.</strong> Add <strong>VSim.jar</strong> to <code>CLASSPATH</code>, using System Properties dialog</p>
+<pre><code class="text">System Properties &gt; Environment variables &gt; Create or append to CLASSPATH variable
+</code></pre>
+
+<p><strong>4.</strong> Create a short convenient command for the simulator, using a batch file called <code>vsim.bat</code> (save this file in a directory in system <code>PATH</code>, e.g <em>system32</em>):</p>
+<pre><code class="text">@echo off
+java vsim.VSim %*
+</code></pre>
+
+<h2 id="testing-installation">Testing Installation</h2>
+<p>To verify that V-Sim has been installed, open a terminal/command line and enter this:</p>
 <pre><code class="shell">$ vsim -version
 </code></pre>
 
-<p>which should output <code>v1.0.0</code> if the installation was successful.</p>
+<p>which should output <code>v1.0.0</code> if the installation was successful. Then you can follow the <a href="usage/">usage</a> guide.</p>
               
             </div>
           </div>
@@ -218,5 +246,5 @@
 
 <!--
 MkDocs version : 0.17.5
-Build Date UTC : 2018-07-10 19:34:57
+Build Date UTC : 2018-07-12 14:46:38
 -->
